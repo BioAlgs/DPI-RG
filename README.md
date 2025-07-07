@@ -13,11 +13,11 @@ conda activate dpi
 Running Experiments
 - Fashion-MNIST
 ```{python}
-nohup python -u fmnist_main.py > fmnist.log &
+python main.py --dataset FashionMNIST > fmnist.log 
 ```
 - CIFAR10
 ```{python}
-nohup python -u cifar10_main.py > cifar10.log &
+python main.py --dataset CIFAR10 > cifar10.log 
 ```
 
 ### Custom Experiments
