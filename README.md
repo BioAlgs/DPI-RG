@@ -21,7 +21,7 @@ python main.py --dataset CIFAR10 > cifar10.log
 ```
 
 ### Custom Experiments
-You can modify the main scripts (e.g., fmnist_main.py) to adjust hyperparameters or experiment settings. See the script comments for parameter descriptions.
+You can modify the main script (main.py) to adjust hyperparameters or experiment settings. See the script comments for parameter descriptions.
 
 - Imbalanced Data:
 Set the `balance` argument to `False` when creating the `DPI_CLASS` instance.
@@ -31,7 +31,6 @@ Change the `present_label` argument to include only the classes you want to use 
 For example, to exclude class 9:
 ```{python}
 model = DPI_CLASS(
-    dataset_name='FashionMNIST',
     ...,
     present_label=[0,1,2,3,4,5,6,7,8],  # Exclude class 9
     balance=False,                      # Use imbalanced data
@@ -49,10 +48,10 @@ After validation, a folder named `graphs/<timestamp>` will be created.
 This folder contains histograms of p-values and test statistics for further analysis.
 
 ## Project Structure
-- `fmnist_main.py`, `cifar10_main.py`: Main entry points for experiments.
+- `main.py`: Main script for experiments.
 - `utils/`: Contains core classes, model definitions, and utility functions.
 - `graphs/`: Output directory for plots and visualizations.
-- `params/`: Stores hyperparameter settings for each experiment run.
+- `params/`: Stores hyperparameter settings and network parameters for each experiment run.
 - `environment.yml`: Conda environment specification.
 
 ## Reproducibility
