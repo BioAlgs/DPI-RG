@@ -9,8 +9,15 @@ conda env create -f environment.yml
 conda activate dpi
 ```
 
+## File Structure
+- `main.py`: Main script for experiments.
+- `utils/`: Contains core classes, model definitions, and utility functions.
+- `graphs/`: Output directory for plots and visualizations.
+- `params/`: Stores hyperparameter settings and network parameters for each experiment run.
+- `environment.yml`: Conda environment specification.
+
 ## Usage
-Running Experiments
+### Running Experiments
 - Fashion-MNIST
 ```{python}
 python main.py --dataset FashionMNIST > fmnist.log 
@@ -47,16 +54,12 @@ During validation, the script prints the coverage and average set size to the co
 After validation, a folder named `graphs/<timestamp>` will be created.
 This folder contains histograms of p-values and test statistics for further analysis.
 
-## Project Structure
-- `main.py`: Main script for experiments.
-- `utils/`: Contains core classes, model definitions, and utility functions.
-- `graphs/`: Output directory for plots and visualizations.
-- `params/`: Stores hyperparameter settings and network parameters for each experiment run.
-- `environment.yml`: Conda environment specification.
-
 ## Reproducibility
-All experiment parameters and random seeds are saved for each run in the `params/<timestamp>/hyper_param.json` file.
-To reproduce a specific experiment, use the saved parameters and set the same <timestamp> in the python script.
+The experiments were conducted on a server with four NVIDIA RTX A4000 GPUs.
+
+For Reproducibility: 
+- Each run saves parameters and random seeds in `params/<timestamp>/hyper_param.json`.
+- To replicate a specific run, load these saved parameters and set the corresponding `<timestamp>` in the script.
 
 ## Acknowledgements
 We would like to acknowledge the authors of [inferential Wasserstein GAN](https://academic.oup.com/jrsssb/article/84/1/83/7056079), as part of our code is adapted from their code repository.
